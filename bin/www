@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const debug = require('debug')('restapi');
+// cwd方法返回进程的当前目录（绝对路径）
+const libs = process.cwd() + '/libs/';
+
+const config = require(libs + 'config');
+const log = require(libs + 'log')(module);
+const app = require(libs + 'app');
+
+app.set('port', process.env.PORT || config.get('port') || 3000);
+
+const server = app.listen(app.get('port'), function () {
+  debug('Express server listening on port ' + app.get('port'));
+  log.info('Express server listening on port ' + app.get('port'));
+});

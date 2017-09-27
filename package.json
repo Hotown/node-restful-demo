@@ -1,0 +1,27 @@
+{
+  "name": "node-restful",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./libs/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "crypto": "^1.0.1",
+    "debug": "^3.0.1",
+    "express": "^4.15.4",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.12",
+    "nconf": "^0.8.4",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-http-bearer": "^1.0.1",
+    "passport-oauth2-client-password": "^0.1.2",
+    "path": "^0.12.7",
+    "winston": "^2.3.1"
+  }
+}
