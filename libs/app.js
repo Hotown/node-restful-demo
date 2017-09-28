@@ -19,13 +19,22 @@ const app = express();
 
 // 加载中间件
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(cookieParser());
 app.use(methodOverride());
 app.use(passport.initialize());
 
+// 路由绑定
+app.use('/', api);
+app.use('/api', api);
+app.use('/api/users', users);
+app.use('/api/articles', articles);
+app.use('/api/oauth/token', oauth2.token);
+
 // 定义页面错误处理
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.status(404);
     log.debug("%s %d %s", req.method, res.statusCode, err.message);
     res.json({
@@ -35,7 +44,7 @@ app.use(function(req, res, next) {
 });
 
 // 定义全局错误处理
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     log.error("%s %d %s", req.method, res.statusCode, err.message);
     res.json({

@@ -15,7 +15,7 @@ const Token = new Schema({
         unique: true,
         required: true
     },
-    createdAt: {
+    created: {
         type: Date,
         default: Date.now
     }

@@ -36,7 +36,7 @@ const Article = new Schema({
 });
 
 // 增加验证逻辑
-Article.path("title").validate(function(v) {
+Article.path("title").validate(function (v) {
     return v.length > 5 && v.length < 70;
 });
 
