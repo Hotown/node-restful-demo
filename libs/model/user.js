@@ -22,13 +22,16 @@ const mongoose = require("mongoose"),
     });
 // 定义User的方法
 User.methods.encryptPassword = function(password) {
-    return crypto
-        .createHmac("sha1", this.salt)
-        .update(password)
-        .digest("hex");
+	return crypto.createHmac('sha1', this.salt).update(password).digest('hex');
+    //more secure - return crypto.pbkdf2Sync(password, this.salt, 10000, 512).toString('hex');
 };
 
 // 定义User的虚拟属性，虚拟属性不会存入数据库
+User.virtual('userId')
+.get(function () {
+	return this.id;
+});
+
 User.virtual("password")
     .set(function(password) {
         this._plainPassword = password;

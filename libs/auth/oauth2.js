@@ -23,7 +23,7 @@ const errFn = function (cb, err) {
 }
 
 const generateTokens = function (data, done) {
-    const errHandler = errFn.bind(undefined, done),
+    let errHandler = errFn.bind(undefined, done),
         refreshToken,
         refreshTokenValue,
         token,

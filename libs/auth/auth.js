@@ -7,10 +7,10 @@ const libs = process.cwd() + "/libs/";
 
 const config = require(libs + "config");
 
-const User = require(libs + "module/user");
-const Client = require(libs + "module/client");
-const Token = require(libs + "module/token");
-const refreshToken = require(libs + "module/refreshToken");
+const User = require(libs + "model/user");
+const Client = require(libs + "model/client");
+const Token = require(libs + "model/token");
+const refreshToken = require(libs + "model/refreshToken");
 
 passport.use(
     new BasicStrategy(function (username, password, done) {

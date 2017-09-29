@@ -4,7 +4,7 @@ nconf
     .argv()
     .env()
     .file({
-        file: process.cwd() + "config.json"
+        file: process.cwd() + "/config.json"
     });
 
 module.exports = nconf;

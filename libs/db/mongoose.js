@@ -8,6 +8,7 @@ const config = require(libs + 'config');
 
 mongoose.connect(config.get('mongoose:uri'));
 
+
 // 创建数据库连接
 const db = mongoose.connection;
 
@@ -17,7 +18,7 @@ db.on('error', function (err) {
 });
 
 // 打开一次
-db.once('once', function callback() {
+db.once('open', function callback() {
   log.info("Connected to DB!");
 });
 

@@ -5,11 +5,12 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const methodOverride = require("method-override");
 
-const libs = process.cwd() + "/libs";
+const libs = process.cwd() + "/libs/";
 require(libs + "auth/auth");
 
 const config = require("./config");
 const log = require("./log")(module);
+const oauth2 = require('./auth/oauth2');
 
 const api = require("./routes/api");
 const users = require("./routes/users");

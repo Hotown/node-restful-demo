@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-const RefreshToken = new Schema({
+const mongoose = require("mongoose"),
+    Schema = mongoose.Schema;
+    
+let RefreshToken = new Schema({
     userId: {
         type: String,
         required: true
@@ -15,34 +15,10 @@ const RefreshToken = new Schema({
         unique: true,
         required: true
     },
-    createdAt: {
+    created: {
         type: Date,
         default: Date.now
     }
 });
 
-module.exports = mongoose.model('RefreshToken', RefreshToken);
-const mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-
-    RefreshToken = new Schema({
-        userId: {
-            type: String,
-            required: true,
-        },
-        clientId: {
-            type: String,
-            required: true
-        },
-        token: {
-            type: String,
-            unique: true,
-            required: true
-        },
-        created: {
-            type: Date,
-            default: Date.now
-        }
-    });
-
-module.exports = mongoose.Model('RefreshToken', RefreshToken);
+module.exports = mongoose.model("RefreshToken", RefreshToken);
